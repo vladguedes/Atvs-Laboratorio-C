@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct funcionario {
     char nome[50], cargo[50];
@@ -20,6 +21,54 @@ void imprime(struct funcionario *f, int quant_funcionarios) {
         printf("\nIdentificador: %d", f[i].identificador);
     }
 
+}
+
+void maior(struct funcionario *f, int quant_funcionarios) {
+    int i;
+    char maior_cargo[50], menor_cargo[50];
+    float maior_salario, menor_salario;
+
+    for(i = 0; i < quant_funcionarios; i++) {
+
+        if(i == 0) {
+
+            strcpy(maior_cargo, f[i].cargo);
+            strcpy(menor_cargo, f[i].cargo);
+            maior_salario = f[i].salario;
+            menor_salario = f[i].salario;
+
+        }
+
+        if(maior_cargo < f[i].cargo) {
+
+            strcpy(maior_cargo, f[i].cargo);
+
+        }
+
+        if(menor_cargo > f[i].cargo) {
+
+            strcpy(menor_cargo, f[i].cargo);
+
+        }
+
+        if(maior_salario < f[i].salario) {
+
+            maior_salario = f[i].salario;
+
+        }
+
+        if(menor_salario > f[i].salario) {
+
+            menor_salario = f[i].salario;
+
+        }
+
+    }
+
+    printf("\nO cargo com maior salario e: %s", maior_cargo);
+    printf("\nE seu salario e: R$%.2f", maior_salario);
+    printf("\n\nO cargo com o menor salario e: %s", menor_cargo);
+    printf("\nE seu salario e: R$%.2f", menor_salario);
 }
 
 void altera_salario(struct funcionario *f) {
@@ -68,6 +117,8 @@ int main(void) {
     }
 
     else {
+
+        maior(f, quant_funcionarios);
         printf("\nFim do programa!");
     }
 
