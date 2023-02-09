@@ -8,6 +8,27 @@ struct funcionario {
     int identificador;
 };
 
+void ler(struct funcionario *f, int quant_funcionarios) {
+    int i;
+
+    for (i = 0; i < quant_funcionarios; i++) {
+
+        printf("\nDigite o nome do funcionario %d: ", i + 1);
+        scanf(" %[^\n]s", f[i].nome);
+
+        printf("\nDigite o salario desse funcionario: ");
+        scanf("%f", &f[i].salario);
+
+        printf("\nDigite o seu cargo: ");
+        scanf(" %[^\n]s", f[i].cargo);
+        
+        printf("\nDigite o seu identificador: ");
+        scanf("%d", &f[i].identificador);
+
+    }
+
+}
+
 void imprime(struct funcionario *f, int quant_funcionarios) {
     int i;
 
@@ -85,26 +106,13 @@ int main(void) {
 
     struct funcionario *f = (struct funcionario *)malloc(sizeof(struct funcionario));
 
-    int quant_funcionarios, i;
+    int quant_funcionarios;
 
     printf("Digite a quantidade de funcionario: ");
 
     scanf("%d", &quant_funcionarios);
 
-    for (i = 0; i < quant_funcionarios; i++) {
-
-        printf("\nDigite o nome do funcionario %d: ", i + 1);
-        scanf(" %[^\n]s", f[i].nome);
-
-        printf("\nDigite o salario desse funcionario: ");
-        scanf("%f", &f[i].salario);
-
-        printf("\nDigite o seu cargo: ");
-        scanf(" %[^\n]s", f[i].cargo);
-        
-        printf("\nDigite o seu identificador: ");
-        scanf("%d", &f[i].identificador);
-    }
+    ler(f, quant_funcionarios);
 
     imprime(f, quant_funcionarios);
 
@@ -119,7 +127,7 @@ int main(void) {
     else {
 
         maior(f, quant_funcionarios);
-        printf("\nFim do programa!");
+        printf("\n\nFim do programa!");
     }
 
     free(f);
