@@ -5,6 +5,7 @@ struct funcionario
 {
     char nome[50], cargo[50];
     float salario;
+    int identificador;
 };
 
 int main(void) {
@@ -27,6 +28,9 @@ int main(void) {
 
         printf("\nDigite o seu cargo: ");
         scanf(" %[^\n]s", f[i].cargo);
+        
+        printf("\nDigite o seu identificador: ");
+        scanf("%d", &f[i].identificador);
     }
 
     for(i = 0; i < quant_funcionarios; i++) {
@@ -36,6 +40,7 @@ int main(void) {
         printf("\nNome: %s", f[i].nome);
         printf("\nCargo: %s", f[i].cargo);
         printf("\nSalario: %.2f", f[i].salario);
+        printf("\nIdentificador: %d", f[i].identificador);
     }
 
     free(f);
