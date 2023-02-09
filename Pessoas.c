@@ -59,8 +59,8 @@ void altera(struct pessoa *p) {
 }
 
 void maior(struct pessoa *p, int qnt_p) {
-    int maior, imaior, menor, imenor, i;
-
+    int maior, imaior, menor, imenor, i; //A variável imaior recebe o index da maior idade, já imenor recebe o menor.
+                                         //A variável maior e menor vai ser usado para comparar as idades.
     for(i = 0; i < qnt_p; i++) {
 
         if(i == 0) {
